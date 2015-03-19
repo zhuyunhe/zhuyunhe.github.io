@@ -4,17 +4,20 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
 <!-- 新 Bootstrap 核心 CSS 文件 -->
-<link rel="stylesheet" href="commons/bootstrap/css/bootstrap.min.css">
+<!-- <link rel="stylesheet" href="../../commons/bootstrap/css/bootstrap.min.css"> -->
+<!-- <link rel="stylesheet" href="../../commons/bootstrap/css/bootstrap.css"> -->
 
 <!-- 可选的Bootstrap主题文件（一般不用引入） -->
-<link rel="stylesheet" href="commons/bootstrap/css/bootstrap-theme.min.css">
+<!-- <link rel="stylesheet" href="../../commons/bootstrap/css/bootstrap-theme.min.css"> -->
 
 <!-- 主页用到的css -->
-<link rel="stylesheet" href="stylesheets/style.css">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/bootstrap.css">
 
-<script type="text/javascript" src="commons/jquery/jquery.js"></script>
-<script type="text/javascript" src="commons/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../../commons/jquery/jquery.js"></script>
+<script type="text/javascript" src="../../commons/bootstrap/js/bootstrap.min.js"></script>
 <title>主页</title>
+
 </head>
 <body>
 <!-- 菜单列表 -->
@@ -43,10 +46,10 @@
    </div>
 </nav>
 <div class="index-banner">
-      <div class="container">
-           <div class="">
+       <div class="container">
+           <div class="wmuSlider example1">
                <div class="wmuSliderWrapper">
-                   <article style="position: absolute; width: 100%; opacity: 1;"> 
+                   <article style="position: absolute; width: 100%; opacity: 0;"> 
                     <div class="banner-wrap">
                            <div class="bannertop_box">
                                 <h1>HELLO,<span>I'M YOUR NAME</span></h1>
@@ -54,16 +57,58 @@
                                 <p>Slider for your work.pictures yours recent projects or something like that.</p>
                                 <p>You can put your own stuff such as other text information, images etc. </p>
                                 <p>That's absolutely <span class="bold">free</span> template. Ihope you enjoy it!<span class="bold block">Thank you.</span></p>
-                           </div>
+                            </div>
                             
-                           <div class="banner_right">
-                               <img src="../../commons/images/znn1.jpg" class="img-responsive" alt="" />
-                           </div>
-                           <div class="clearfix"></div>
-                     </div>
+                            <div class="banner_right">
+                                <img src="../../commons/images/znn1.jpg" class="img-responsive" alt="" />
+                            </div>
+                            <div class="clearfix"></div>
+                      </div>
+                    </article>
+                   <article style="position: relative; width: 100%; opacity: 1;"> 
+                       <div class="banner-wrap">
+                          <div class="bannertop_box">
+                               <h1>HAI,<span>I LOREM IPSUM</span></h1>
+                                <label>design / chrome / developer</label>
+                                <p>when unknown printer took galley of type Ipsum is not simply random text.</p>
+                                <p>There are many variations passages of Lorem available, images etc. </p>
+                                <p>The standard since <span class="bold">1500s</span> template. Ihope you enjoy it!<span class="bold block">Lorem Ipsum.</span></p>
+                            </div>
+                            
+                            <div class="banner_right">
+                                <img src="../../commons/images/znn2.jpg" class="img-responsive" alt="" />
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
                    </article>
-                </div>
+                   <article style="position: absolute; width: 100%; opacity: 0;">
+                      <div class="banner-wrap">
+                           <div class="bannertop_box">
+                              <h1>DONE,<span>THE TEMPLATE</span></h1>
+                                <label>web / ./ mobile</label>
+                                <p>Sed ut perspiciatis un omnis natus error voluptatem nulla pariatur.</p>
+                                <p>But I must explain to you how all mistaken idea of denouncing pleasure. </p>
+                                <p>The Lorem <span class="bold">therefore</span> template. Ihope you enjoy it!<span class="bold block">welcome</span></p>
+                            </div>
+                            
+                            <div class="banner_right">
+                                <img src="../../commons/images/znn3.jpg" class="img-responsive" alt="" />
+                            </div>
+                            <div class="clearfix"></div>
+                         </div>
+                     </article>
+                 </div>
+                <a class="wmuSliderPrev">Previous</a><a class="wmuSliderNext">Next</a>
+                <ul class="wmuSliderPagination">
+                    <li><a href="#" class="">0</a></li>
+                    <li><a href="#" class="">1</a></li>
+                    <li><a href="#" class="wmuActive">2</a></li>
+                </ul>
             </div>
+            <script src="./js/jquery.wmuSlider.js"></script> 
+              <script>
+                $('.example1').wmuSlider();         
+             </script>                    
       </div>
 </div>
 </body>
