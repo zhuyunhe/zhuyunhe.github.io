@@ -1,25 +1,46 @@
-body{
+/*body{
 	padding: 150px;
-	background:  #2b2b2b /*url("../images/bg-tile.jpg")*/;
+	background:  #2b2b2b;
 	background-size: cover;
+}*/
+
+div.homepage-content{
+	width: auto;
+	height: 800px;
 }
 
-a.tooltip{
+a.tooltip.photo1{
 	display: block;
-	width: 100px;
-	height: 100px;
+	width: 200px;
+	height: 200px;
 	border:5px solid #4b4b4b;
+	border-radius: 105px;
+}
+
+a.tooltip.photo2{
+	display: block;
+	width: 300px;
+	height: 300px;
+	border:5px solid #4b4b4b;
+	border-radius: 155px;
+}
+a.tooltip.photo3{
+	display: block;
+	width: 400px;
+	height: 400px;
+	border:5px solid #4b4b4b;
+	border-radius: 205px;
 }
 
 ul.gallery-nav li{
 	float: left;
 	list-style-type: none;
-	margin-right: 100px;
+	margin-right: 200px;
 }
 
-a.tooltip{
-	border-radius: 55px;
-}
+/*a.tooltip{
+	border-radius: 105px;
+}*/
 
 a.tooltip.photo1{
 	background-image: url("../images/banner-photo.jpg");
@@ -49,7 +70,7 @@ a.tooltip .tooltip-title{
 
 a.tooltip .tooltip-desc{
 	margin-bottom: 0;
-	font-size: 11px;
+	font-size: 18px;
 	text-align: justify;
 	color:#bcbcbc;
 }
@@ -61,14 +82,15 @@ a.tooltip{
 a.tooltip .tooltip-box{
 	position: absolute;
 	opacity:0;
-	width: 100px;
-	padding: 5px;
+	width: 20em;
+	padding: 1em;
 	background:#111; 
 	bottom: 100px;
 	left: -0px;
 	border-radius: 15px;
 	transition:all .4s ease-in .3s;
 }
+
 
 a.tooltip .tooltip-box :before{
 	content: "";
@@ -79,11 +101,19 @@ a.tooltip .tooltip-box :before{
 	border-left: 10px solid transparent;
 	border-right: 10px solid transparent;
 }
-a.tooltip:hover .tooltip-box{
+a.tooltip.photo1:hover .tooltip-box{
 	opacity: 1;
-	bottom: 120px;
+	bottom: 200px;
 }
 
+a.tooltip.photo2:hover .tooltip-box{
+	opacity: 1;
+	bottom: 300px;
+}
+a.tooltip.photo3:hover .tooltip-box{
+	opacity: 1;
+	bottom: 400px;
+}
 a.tooltip:focus,a.tooltip:hover{
 	border-color: #f5bca6;
 }
@@ -93,3 +123,19 @@ a.tooltip:focus,a.tooltip:hover{
 	display: block;
 	clear: both;
 }
+div.homepage-content{
+	position: relative;
+}
+
+div.description{
+	clear:both;
+	position: absolute;
+	left: 100px;
+	bottom: 50px;
+}
+
+div.description div{
+	float: left;
+	opacity: 0;
+}
+

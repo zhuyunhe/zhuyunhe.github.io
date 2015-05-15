@@ -11,23 +11,40 @@
 	<p>
 		未曾清贫难成人，不经打击老天真。<br>
 		自古英雄出炼狱，从来富贵入凡尘。<br>
-		醉生梦死谁成器，拓马长枪定乾坤。<br>
-		挥军千里山河在，立名扬威传后人。
-
 	</p>
 	<nav id="navigation">
 	<ul>
-		<li class="focus"><a href="javascript:void(0)">Home</a></li>
+		<li class="focus homepage"><a href="javascript:void(0)">Home</a></li>
 		<li><a href="javascript:void(0)">文章</a></li>
 		<li><a href="javascript:void(0)">照片</a></li>
-		<li><a href="javascript:void(0)">兴趣爱好</a></li>
+		<li class="movie"><a href="javascript:void(0)">兴趣爱好</a></li>
 		<li><a href="javascript:void(0)">我的CSDN</a></li>
 	</ul>
 	</nav>
+</div>
+<div id="content">
+		
 </div>
 </body>
 <script type="text/javascript" src="../js/modernizr.custom.js"></script>
 <script type="text/javascript" src="../js/jquery-1.11.3.js"></script>
 <script type="text/javascript" src="../js/jquery-ui.js"></script>
+<script type="text/javascript" src="../js/jquery.nav.js"></script>
 <script type="text/javascript" src="../js/homepage.js"></script>
+<script type="text/javascript">
+	(function($){
+		$(function(){
+			$('#navigation').nav();
+		});
+	})(jQuery);
+
+	/*$(document).ready(function(){
+		alert('DOM is ready');
+	});*/
+/*;(function($){		//使用JavaScript自运行函数
+	$(function(){	//通过jQuery ready()当文档准备好后运行
+		alert('DOM is ready');
+	});
+})(jQuery);			//在自运行函数内部使用$代替jQuery*/
+</script>
 </html>
