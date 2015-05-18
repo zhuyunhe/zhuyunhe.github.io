@@ -20,7 +20,7 @@ h1+p{
 /*设置内容部分的总体样式*/
 div#content{
 	margin: 30px auto;
-	padding: 3em;
+	padding: 1em;
 	height: auto;
 	width: auto;
 	background: #fff;
@@ -31,10 +31,11 @@ div#content{
 	padding: 3px;
 }
 
+
 #navigation li{
 	float: left;
 	border-right: 1px solid #eee;
-	list-style-type: none;
+	list-style-type: none
 }
 
 #navigation li a{
@@ -61,4 +62,10 @@ div#content{
 	border-radius: 6px;
 	background-image: linear-gradient(-90deg,#887963,#0b0a09);
 	box-shadow: 0px 0px 2px #69635a;
+}
+
+div.footer {
+	background-color:#99bbbb;
+	clear:both;
+	text-align:center;
 }

@@ -9,7 +9,7 @@
 		options = $.extend(defaults,options);
 
 		return this.each(function(){
-			var $nav = $("#navigation");
+		var $nav = $("#navigation");
 		var $current_item = $nav.find('.focus');
 		var $lava = $('<li class="lava"/>');
 

@@ -7,7 +7,11 @@ var timer = null;
 timer = setInterval(function (){
 if (count >= str.length) {
 clearInterval(timer);
-}else{content.innerHTML = str.substring(0, count);count++;}},speed);} 
+}else{
+	content.innerHTML = str.substring(0, count);
+	count++;}
+},speed);
+} 
 
 onload = function () {
 var oContent = document.getElementById("content");
