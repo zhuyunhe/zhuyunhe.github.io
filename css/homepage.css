@@ -43,6 +43,7 @@ div#content{
 	padding: 10px;
 	font:14px/1 Verdana;
 	color: #a49e96;
+	text-decoration:none;
 }
 
 #navigation li:last-child{
@@ -65,7 +66,7 @@ div#content{
 }
 
 div.footer {
-	background-color:#99bbbb;
+	
 	clear:both;
 	text-align:center;
 }

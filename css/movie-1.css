@@ -1,0 +1,28 @@
+ul#nav{
+	list-style-type: none;
+	margin: 10px 0 10px;
+	padding: 0;
+}
+
+ul#nav li{
+	float: left;
+	width: 30px;
+}
+
+ul#nav li a{
+	text-decoration: none;
+	background: #05609A;
+	color: #fff;
+	padding: 5px;
+}
+
+ul#nav li a.active{
+	background: #b4f114;
+}
+
+.slide-image{
+	width: 400px;
+	height: 300px;
+	border:2px solid #05609A;
+	overflow: hidden;
+}

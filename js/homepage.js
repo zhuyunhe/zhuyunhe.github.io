@@ -63,7 +63,11 @@
 ;(function($){
 	$(function(){
 		var loadMovie = function(){
-		$('#content').load('../pages/movie.html');
+		$('#content').load('../pages/movie.html',function(){
+			$('a.movie1').bind('click',function(){
+			$('div.movies').load('../pages/movie-1.html',loadMovie1);
+			});
+		});
 		};
 
 		var loadHomepage = function(){

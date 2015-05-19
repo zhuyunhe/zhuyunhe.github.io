@@ -1,12 +1,16 @@
 @charset "utf-8"
+div.movie-content {
+    position: relative;
+}
 div.movie-content{
 	width: auto;
 	height: 800px;
-	background-color:#99bbcb;
+	background-image: url('../images/longmao.jpeg');
+	background-size: cover;
 }
 div.movie-header {
-	background-color:#99bbbb;
-	height: 150px;
+	background: #eeece7;
+	height: 15%;
 }
 div.movie-header-right {
 	float: right;	
@@ -19,8 +23,9 @@ div.movie-header-left {
 	width: 500; 
 }*/
 div.movie-menu{
-	background-color:#ffff99;
+	/*background-color:#ffff99;*/
 	width:15%;
+	height: 85%;
 	float:left;
 }
 
@@ -46,16 +51,18 @@ div.movie-menu ul li.odd a{
 	padding: 10px;
 	font:15px/1 Verdana;
 	color: #FFFFFF;
+	text-decoration:none;
 }
 div.movie-menu ul li.even a{
 	border:0;
 	padding: 10px;
 	font:15px/1 Verdana;
 	color: #0b0a09;
+	text-decoration:none;
 }
 div.movies {
-	background-color:#EEEEEE;
 	width: 85%;
+	height: 85%;
 	float:left;
 }
 
