@@ -43,13 +43,14 @@ ul.gallery-nav li{
 }*/
 
 a.tooltip.photo1{
-	background-image: url("../images/banner-photo.jpg");
+	background-image: url("../images/college.jpg");
 }
 a.tooltip.photo2{
-	background-image: url("../images/banner-photo.jpg");
+	background-image: url("../images/graduated.jpg");
+	background-size: contain;
 }
 a.tooltip.photo3{
-	background-image: url("../images/banner-photo.jpg");
+	background-image: url("../images/future.jpeg");
 }
 
 a.tooltip{

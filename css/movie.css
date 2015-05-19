@@ -5,8 +5,6 @@ div.movie-content {
 div.movie-content{
 	width: auto;
 	height: 800px;
-	background-image: url('../images/longmao.jpeg');
-	background-size: cover;
 }
 div.movie-header {
 	background: #eeece7;
@@ -23,7 +21,7 @@ div.movie-header-left {
 	width: 500; 
 }*/
 div.movie-menu{
-	/*background-color:#ffff99;*/
+	background-color: #eeece7;
 	width:15%;
 	height: 85%;
 	float:left;
@@ -61,9 +59,17 @@ div.movie-menu ul li.even a{
 	text-decoration:none;
 }
 div.movies {
-	width: 85%;
+	width: 45%;
 	height: 85%;
 	float:left;
+
+}
+
+div.movie-descrip{
+	width: 40%;
+	height: 85%;
+	background-color: #eeece7;
+	float: left;
 }
 
 div.float{

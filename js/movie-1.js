@@ -43,5 +43,6 @@ function loadMovie1(){
 		$('.slide-image img').fadeIn();
 		$('#nav li a').removeClass('active');
 		$(this).addClass('active');
+		$('.movie-descrip').append('<p>专业:信息与通信工程</p>');
 	});
 }
