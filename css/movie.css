@@ -8,7 +8,7 @@ div.movie-content{
 }
 div.movie-header {
 	background: #eeece7;
-	height: 15%;
+	height: 10%;
 }
 div.movie-header-right {
 	float: right;	
@@ -37,12 +37,14 @@ div.movie-menu ul li.odd{
 	background-image: linear-gradient(-90deg,#887963,#0b0a09);
 	box-shadow: 0px 0px 2px #69635a;
 	width: 50%;
+
 }
 div.movie-menu ul li.even{
 	border-radius: 6px;
 	background-image: linear-gradient(-90deg,#D2C5B8,#FFFFFF);
 	box-shadow: 0px 0px 2px #69635a;
 	width: 90%;
+	padding: 10px;
 }
 div.movie-menu ul li.odd a{
 	border:0;
@@ -69,6 +71,8 @@ div.movie-descrip{
 	height: 85%;
 	background-color: #eeece7;
 	float: left;
+	font-style: italic;
+	font-variant: 
 }
 
 div.float{

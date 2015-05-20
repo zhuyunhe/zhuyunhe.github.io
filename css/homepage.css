@@ -5,18 +5,27 @@ body{
 h1{
 	color: #a4834d;
 }
-
+/*+是相邻兄弟选择器,>是子元素选择器，空格是后代元素选择器*/
 h1+p{
 	margin-bottom: 2em;
+	font-style: 
 }
 /*设置导航栏的总体样式*/
 #page-wrap{
-	margin: 30px auto;/*上下外边距30px，左右外边距为auto*/
-	padding: 3em;
+	margin: 15px auto;/*上下外边距30px，左右外边距为auto*/
+	padding-top: 1em;
+	padding-left: 2em;
+	padding-right: 2em;
+	padding-bottom: 2.5em;
 	background: #fff;
 	box-shadow: 0px 0px 2px #62615f inset;
 	border-radius: 20px;
 }
+
+.time{
+	float: right;
+}
+
 /*设置内容部分的总体样式*/
 div#content{
 	margin: 30px auto;

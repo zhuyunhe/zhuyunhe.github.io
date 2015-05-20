@@ -1,117 +1,51 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-
-<!-- 新 Bootstrap 核心 CSS 文件 -->
-<!-- <link rel="stylesheet" href="../../commons/bootstrap/css/bootstrap.min.css"> -->
-<!-- <link rel="stylesheet" href="../../commons/bootstrap/css/bootstrap.css"> -->
-
-<!-- 可选的Bootstrap主题文件（一般不用引入） -->
-<!-- <link rel="stylesheet" href="../../commons/bootstrap/css/bootstrap-theme.min.css"> -->
-
-<!-- 主页用到的css -->
-<link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="css/bootstrap.css">
-
-<script type="text/javascript" src="commons/jquery/jquery.js"></script>
-<script type="text/javascript" src="commons/bootstrap/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="js/scope.js"></script>
-<title>主页</title>
-
+<meta charset="utf-8">
+<title>个人主页设计</title>
+<link rel="stylesheet" href="css/homepage.css">
 </head>
 <body>
-<!-- 菜单列表 -->
-<nav class="navbar navbar-default" role="navigation">
-   <div class="navbar-header">
-      <a class="navbar-brand" href="javascript:void(0)">朱云鹤的博客</a>
-   </div>
-   <div>
-      <ul class="nav navbar-nav">
-         <li class="active"><a href="javascript:void(0)">文章</a></li>
-         <li><a href="javascript:void(0)">照片</a></li>
-         <li class="dropdown">
-            <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">
-               	兴趣爱好 
-               <b class="caret"></b>
-            </a>
-            <ul class="dropdown-menu">
-               <li><a href="javascript:void(0)">音乐</a></li>
-               <li class="divider"></li>
-               <!-- <li class="divider"></li> -->
-               <li><a href="javascript:void(0)">历史</a></li>
-            </ul>
-         </li>
-         <li><a href="javascript:void(0)">游记</a></li>
-         <li><a href="http://blog.csdn.net/zhuyunhe">我的CSDN</a></li>
-      </ul>
-   </div>
-</nav>
-<div class="index-banner">
-       <div class="container">
-           <div class="wmuSlider example1">
-               <div class="wmuSliderWrapper">
-                   <article style="position: absolute; width: 100%; opacity: 0;"> 
-                    <div class="banner-wrap">
-                           <div class="bannertop_box">
-                                <h1>HELLO,<span>我叫朱云鹤</span></h1>
-                                <label>北邮 / 研二 / </label>
-                                <p>专业:信息与通信工程</p>
-                                <p>联系方式：15210805061 </p>
-                                <p>That's absolutely <span class="bold">逗比</span>I hope you enjoy it!<span class="bold block">Thank you.</span></p>
-                            </div>
-                            
-                            <div class="banner_right">
-                                <img src="commons/images/zhu1.JPG" class="img-responsive" alt="" />
-                            </div>
-                            <div class="clearfix"></div>
-                      </div>
-                    </article>
-                   <article style="position: relative; width: 100%; opacity: 1;"> 
-                       <div class="banner-wrap">
-                          <div class="bannertop_box">
-                               <h1>HAI,<span>I LOREM IPSUM</span></h1>
-                                <label>design / chrome / developer</label>
-                                <p>when unknown printer took galley of type Ipsum is not simply random text.</p>
-                                <p>There are many variations passages of Lorem available, images etc. </p>
-                                <p>The standard since <span class="bold">1500s</span> template. Ihope you enjoy it!<span class="bold block">Lorem Ipsum.</span></p>
-                            </div>
-                            
-                            <div class="banner_right">
-                                <img src="commons/images/zhu1.JPG" class="img-responsive" alt="" />
-                            </div>
-                            <div class="clearfix"></div>
-                        </div>
-                   </article>
-                   <article style="position: absolute; width: 100%; opacity: 0;">
-                      <div class="banner-wrap">
-                           <div class="bannertop_box">
-                              <h1>DONE,<span>THE TEMPLATE</span></h1>
-                                <label>web / ./ mobile</label>
-                                <p>Sed ut perspiciatis un omnis natus error voluptatem nulla pariatur.</p>
-                                <p>But I must explain to you how all mistaken idea of denouncing pleasure. </p>
-                                <p>The Lorem <span class="bold">therefore</span> template. Ihope you enjoy it!<span class="bold block">welcome</span></p>
-                            </div>
-                            
-                            <div class="banner_right">
-                                <img src="commons/images/zhu1.JPG" class="img-responsive" alt="" />
-                            </div>
-                            <div class="clearfix"></div>
-                         </div>
-                     </article>
-                 </div>
-                <a class="wmuSliderPrev">Previous</a><a class="wmuSliderNext">Next</a>
-                <ul class="wmuSliderPagination">
-                    <li><a href="#" class="">0</a></li>
-                    <li><a href="#" class="">1</a></li>
-                    <li><a href="#" class="wmuActive">2</a></li>
-                </ul>
-            </div>
-            <script src="./js/jquery.wmuSlider.js"></script> 
-              <script>
-                $('.example1').wmuSlider();         
-             </script>                    
-      </div>
+<div id="page-wrap">
+  <h1>欢迎您，这是我的主页~</h1>
+  <p>
+    所赖君子见机，达人知命。老当益壮，宁移白首之心？穷且益坚，不坠青云之志。<br/>
+    酌贪泉而觉爽，处涸辙以犹欢。北海虽赊，扶摇可接；东隅已逝，桑榆非晚。
+  </p>
+  <nav id="navigation">
+  <ul>
+    <li class="focus homepage"><a href="javascript:void(0)">自我介绍</a></li>
+    <li class="movie"><a href="javascript:void(0)">看电影</a></li>
+    <li><a href="http://blog.csdn.net/zhuyunhe" target="_blank">我的CSDN</a></li>
+  </ul>
+  </nav>
+  <div class="time" id="time"></div>
 </div>
+<div id="content">
+    
+</div>
+<div class="footer">power by zhuyunhe</div>
 </body>
+<script type="text/javascript" src="js/modernizr.custom.js"></script>
+<script type="text/javascript" src="js/jquery-1.11.3.js"></script>
+<script type="text/javascript" src="js/jquery-ui.js"></script>
+<script type="text/javascript" src="js/jquery.nav.js"></script>
+<script type="text/javascript" src="js/homepage.js"></script>
+<script type="text/javascript" src="js/movie-1.js"></script>
+<script type="text/javascript">
+  (function($){
+    $(function(){
+      $('#navigation').nav();
+    });
+  })(jQuery);
+
+  /*$(document).ready(function(){
+    alert('DOM is ready');
+  });*/
+/*;(function($){    //使用JavaScript自运行函数
+  $(function(){ //通过jQuery ready()当文档准备好后运行
+    alert('DOM is ready');
+  });
+})(jQuery);     //在自运行函数内部使用$代替jQuery*/
+</script>
 </html>
