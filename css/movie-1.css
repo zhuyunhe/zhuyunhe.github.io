@@ -8,18 +8,26 @@ ul#nav{
 
 ul#nav li{
 	float: left;
-	width: 30px;
 	
+	margin: 5px;
 }
 
 ul#nav li a{
+	display: block;
 	text-decoration: none;
 	background: #eeece7;
 	color: #a49e96;
 	padding: 5px;
+	width: 20px;
+	height: 20px;
+	border-radius: 12.5px;
 }
 
 ul#nav li a.active{
+	background: #BFEFF2;
+}
+
+ul#nav li a:hover{
 	background: #BFEFF2;
 }
 

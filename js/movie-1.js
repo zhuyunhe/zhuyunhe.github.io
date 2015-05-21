@@ -43,13 +43,17 @@ function loadMovie1(){
 		$('#nav').append('<li><a href="javascript:void(0)" rel="'+slideText+'">'+slideText+'</a></li>');
 	}
 
+	//当前浏览的标签,暂时不用
+	var $a;
+
 	//为元素绑定click事件
 	$('#nav li a').bind('click',function(){
 		//得到当前点击图片的编号
 		var numSlide = $(this).attr('rel');
-		$('.slide-image').html('<img src="'+imgDir+numSlide+'.jpg"/>');
+		$('.slide-image').html('<img src="'+imgDir+numSlide+'.jpg" hidden/>');
 		$('.slide-image img').fadeIn();
 		$('#nav li a').removeClass('active');
+		$a = $(this);
 		$(this).addClass('active');
 		//先清空原先的图片描述
 		$('.movie-descrip').html('');
@@ -58,6 +62,26 @@ function loadMovie1(){
 	});
 
 	$('#nav li a').eq(0).click();
+
+	var curIndex = 0;
+	var delayTime = 6000;	//设置图片自动切换时间
+
+	//图片自动切换的函数
+	setInterval(function(){
+		if (curIndex == slideArray.length-1) {
+			curIndex = 0;
+		} else {
+			curIndex += 1;
+		}
+	   	$('.slide-image').html('<img src="'+imgDir+(curIndex+1)+'.jpg" hidden/>');
+		$('.slide-image img').fadeIn();
+		$('#nav li a').removeClass('active');
+		$('#nav li a').eq(curIndex).addClass('active');
+		//先清空原先的图片描述
+		$('.movie-descrip').html('');
+		//添加新的图片描述
+		$('.movie-descrip').append(descripArray[curIndex]);
+	},delayTime);
 }
 
 //载入第二部电影的函数
@@ -114,3 +138,4 @@ function loadMovie2(){
 
 	$('#nav li a').eq(0).click();
 }
+
