@@ -76,6 +76,8 @@ function loadMovie1(){
 	   	$('.slide-image').html('<img src="'+imgDir+(curIndex+1)+'.jpg" hidden/>');
 		$('.slide-image img').fadeIn();
 		$('#nav li a').removeClass('active');
+
+		//设置当前切换到的a标签为高亮
 		$('#nav li a').eq(curIndex).addClass('active');
 		//先清空原先的图片描述
 		$('.movie-descrip').html('');
