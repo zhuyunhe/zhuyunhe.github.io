@@ -65,7 +65,7 @@
 
 			//第二部电影的点击事件
 			$('a.movie2').on('click',function(){
-			$('div.movies').load('./pages/movie-1.html',loadMovie1);
+			$('div.movies').load('./pages/movie-1.html',loadMovie2);
 			});
 
 
