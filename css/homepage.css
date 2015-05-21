@@ -4,11 +4,22 @@ body{
 
 h1{
 	color: #a4834d;
+	
+}
+div#page-wrap h1{
+	float: left;
+}
+div.welcome{
+	float: left;
+	width: 100px;
+	height: 100px;
+	background-image: url("../images/welcome.jpg");
+	background-size: cover;
 }
 /*+是相邻兄弟选择器,>是子元素选择器，空格是后代元素选择器*/
-h1+p{
+div#page-wrap p{
 	margin-bottom: 2em;
-	font-style: 
+	clear: both; 
 }
 /*设置导航栏的总体样式*/
 #page-wrap{
