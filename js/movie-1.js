@@ -52,6 +52,10 @@ function loadMovie1(){
 	$('#nav li a').bind('click',function(){
 		//得到当前点击图片的编号
 		var numSlide = $(this).attr('rel');
+
+		//得到当前选中图片的索引，从0开始
+		curIndex = numSlide-1;
+
 		$('.slide-image').html('<img src="'+imgDir+numSlide+'.jpg" hidden/>');
 		$('.slide-image img').fadeIn();
 		$('#nav li a').removeClass('active');
@@ -65,7 +69,8 @@ function loadMovie1(){
 
 	$('#nav li a').eq(0).click();
 
-	var curIndex = 0;
+	//得到当前选中图片的索引，从0开始
+	var curIndex;
 	var delayTime = 6000;	//设置图片自动切换时间
 
 	window.clearInterval(intervalId);
@@ -135,6 +140,10 @@ function loadMovie2(){
 	$('#nav li a').bind('click',function(){
 		//得到当前点击图片的编号
 		var numSlide = $(this).attr('rel');
+
+		//得到当前选中图片的索引，从0开始
+		curIndex = numSlide-1;
+
 		$('.slide-image').html('<img src="'+imgDir+numSlide+'.jpg" hidden/>');
 		$('.slide-image img').fadeIn();
 		$('#nav li a').removeClass('active');
@@ -148,7 +157,7 @@ function loadMovie2(){
 
 	$('#nav li a').eq(0).click();
 
-	var curIndex = 0;
+	var curIndex;
 	var delayTime = 6000;	//设置图片自动切换时间
 
 	window.clearInterval(intervalId);
