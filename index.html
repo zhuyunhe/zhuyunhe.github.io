@@ -2,40 +2,63 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>个人主页设计</title>
+<title>北邮-朱云鹤</title>
 <link rel="stylesheet" href="css/homepage.css">
 </head>
 <body>
-<div id="page-wrap">
-  <div class="welcome"></div>
-  <h1>欢迎您，这是我的主页~</h1>
-  <p>
-    所赖君子见机，达人知命。老当益壮，宁移白首之心？穷且益坚，不坠青云之志。<br/>
-    酌贪泉而觉爽，处涸辙以犹欢。北海虽赊，扶摇可接；东隅已逝，桑榆非晚。
-  </p>
+
+  <!-- 页面头部 -->
+  <header>
+    <div id="page-wrap">
+      <!-- 哆啦A梦欢迎 -->
+      <div class="welcome"></div>
+      <!-- 主页标题 -->
+      <h1>欢迎您，这是我的主页~</h1>
+      <!-- 个性签名 -->
+      <article>
+        <p>
+          所赖君子见机，达人知命。老当益壮，宁移白首之心？穷且益坚，不坠青云之志。<br/>
+          酌贪泉而觉爽，处涸辙以犹欢。北海虽赊，扶摇可接；东隅已逝，桑榆非晚。
+        </p>
+        <div class="time" id="time"></div>
+      </article>
+    </div>
+  </header>
+
+  <!-- 导航区 -->
   <nav id="navigation">
-  <ul>
-    <li class="focus homepage"><a href="javascript:void(0)">自我介绍</a></li>
-    <li class="movie"><a href="javascript:void(0)">看电影</a></li>
-    <li><a href="http://blog.csdn.net/zhuyunhe" target="_blank">我的CSDN</a></li>
-  </ul>
+    <ul>
+      <li class="focus homepage"><a href="javascript:void(0)">自我介绍</a></li>
+      <li class="movie"><a href="javascript:void(0)">看电影</a></li>
+      <li><a href="http://blog.csdn.net/zhuyunhe" target="_blank">我的CSDN</a></li>
+    </ul>
   </nav>
-  <div class="time" id="time"></div>
-</div>
-<div id="content">
-    
-</div>
-<div class="footer">power by zhuyunhe</div>
+
+  <!-- 内容区 -->
+  <section>
+  <div id="content">
+      
+  </div>
+  </section>
+
+  <!-- 页脚 -->
+  <footer class="footer">power by zhuyunhe, thanks github~</footer>
+
+
 </body>
+<!-- 公用的js -->
 <script type="text/javascript" src="js/modernizr.custom.js"></script>
 <script type="text/javascript" src="js/jquery-1.11.3.js"></script>
 <script type="text/javascript" src="js/jquery-ui.js"></script>
+
+<!-- 自己写的各个模块的js -->
 <script type="text/javascript" src="js/jquery.nav.js"></script>
 <script type="text/javascript" src="js/homepage.js"></script>
 <script type="text/javascript" src="js/movie-1.js"></script>
 <script type="text/javascript">
   (function($){
     $(function(){
+      //调用生成导航区的插件
       $('#navigation').nav();
     });
   })(jQuery);

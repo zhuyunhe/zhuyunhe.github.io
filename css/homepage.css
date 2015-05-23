@@ -18,8 +18,8 @@ div.welcome{
 }
 /*+是相邻兄弟选择器,>是子元素选择器，空格是后代元素选择器*/
 div#page-wrap p{
-	margin-bottom: 2em;
-	clear: both; 
+	margin-bottom: .5em;
+	clear: left; 
 }
 /*设置导航栏的总体样式*/
 #page-wrap{
@@ -33,7 +33,7 @@ div#page-wrap p{
 	border-radius: 20px;
 }
 
-.time{
+div.time{
 	float: right;
 }
 
@@ -88,5 +88,8 @@ div#content{
 div.footer {
 	
 	clear:both;
+	text-align:center;
+}
+footer{
 	text-align:center;
 }
