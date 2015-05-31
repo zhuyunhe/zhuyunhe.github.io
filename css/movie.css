@@ -25,11 +25,15 @@ div.movie-menu{
 	width:15%;
 	height: 85%;
 	float:left;
+	margin: 0;
+	padding: 0;
 }
 
 div.movie-menu ul{
 	list-style-type: none;
 	text-align: left;
+	margin: 0;
+	padding: 0;
 }
 
 div.movie-menu ul li.odd{
@@ -72,9 +76,14 @@ div.movie-descrip{
 	background-color: #eeece7;
 	float: left;
 	font-style: italic;
+	margin: 0;
+	padding: 0;
 }
 
 div.float{
 	clear: both;
 }
 
+div.movies h1 {
+	height: 5%;
+}

@@ -1,0 +1,60 @@
+/*电影图片切换*/
+div.slide-image{ 
+}
+
+div.slide-image ul.pics {
+	margin: 0;
+	padding: 0;
+	height:100%;
+	width:100%;
+	list-style-type: none;
+}
+div.slide-image ul.pics li {
+	display:none;
+	height:100%;
+}
+div.slide-image ul.pics li.on {
+	display:block;
+}
+div.slide-image ul.tabs {
+	margin: 0;
+	padding: 0;
+	width:100%;
+	list-style-type: none;
+}
+
+ul.tabs li{
+	display:inline-block;
+	margin: 5px;
+}
+
+ul.tabs li a{
+	display: block;
+	text-decoration: none;
+	background: #eeece7;
+	color: #a49e96;
+	padding: 5px;
+	width: 20px;
+	height: 20px;
+	border-radius: 12.5px;
+}
+
+ul.tabs li a.on{
+	background: #BFEFF2;
+}
+
+div.movie-descrip ul.pics-descrip {
+	margin: 0;
+	padding: 0;
+	height:100%;
+	width:100%;
+	list-style-type: none;
+}
+
+div.movie-descrip ul.pics-descrip li {
+	display:none;
+	height:100%;
+}
+div.movie-descrip ul.pics-descrip li.on {
+	display:block;
+}

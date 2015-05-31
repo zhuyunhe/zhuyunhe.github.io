@@ -181,3 +181,130 @@ function loadMovie2(){
 	},delayTime);
 }
 
+/*
+movieName 电影名称
+slideArray 存放电影图片文件名的数组
+imgDir 电影图片文件的目录
+descripArray 每张图片描述的数组
+*/
+function loadMovieSlide(movieName,slideArray,imgDir,descripArray){
+
+	$('.movie-1').html("");
+	$('.movie-descrip').html("");
+	//设置电影名称
+	$('.movie-1').append('<h1>'+movieName+'</h1>');
+
+	//向.movie-1容器内添加一个div元素用来存放稍后放进来的所有图片
+	$('.movie-1').append('<div class="slide-image"></div>');
+
+	//向slide-image容器内添加一个ul无序列表元素用来存放稍后放进来的所有图片
+	$('.slide-image').append('<ul class="pics"></ul>');
+
+
+
+	//向movie-descrip容器添加一个ul无序列表来存放每张图片的描述
+	$('.movie-descrip').append('<ul class="pics-descrip"></ul>')
+
+	//图片右下角随图片滚动的小图块
+	var tab = '<ul class="tabs">';
+	for(var i=0; i<slideArray.length; i++){
+		
+		if(i==0){
+			//添加电影图片
+			$('.pics').append('<li class="on"><img src="'+imgDir+slideArray[i]+'"></li>');
+			//添加电影描述
+			$('.pics-descrip').append('<li class="on">'+descripArray[i]+'</li>');
+			
+			//添加图片的tab
+			tab += '<li><a href="javascript:void(0)" class="on" ></a></li>';
+		}
+		else{
+			$('.pics').append('<li><img src="'+imgDir+slideArray[i]+'"></li>');
+			$('.pics-descrip').append('<li>'+descripArray[i]+'</li>');
+			tab += '<li><a href="javascript:void(0)"></a></li>';
+		}
+		
+	}
+	tab += '</ul>';
+
+	$('.slide-image').append(tab);
+
+	
+
+	function setPosition() {
+	    $('ul.tabs').css({
+		position:'relative',
+		//top:-$('ul.tabs').height(),
+		top:-35,
+		});
+	}
+	setPosition();
+
+
+	
+	slidePics($('.slide-image .tabs li'), $('.slide-image .pics li'),$('.movie-descrip .pics-descrip li'));
+    autoSlide($('.slide-image .tabs li a'), $('.slide-image .pics li'),$('.movie-descrip .pics-descrip li'));
+}
+
+//鼠标挪到特定图片的选择块时调用的函数
+function slidePics(lis,pics_targets,desc_targets,delay,on_class){
+	on_class = on_class || 'on';
+	delay = delay || 100;
+	var _timeout = -1;
+	
+	lis.hover(
+		function(){
+			var obj = $(this);
+        	_timeout = setTimeout(function() {
+            var i = obj.index();
+
+            lis.children().not($(lis.children().get(i)).addClass(on_class)).removeClass(on_class);
+
+            //图片的淡入淡出
+	 		pics_targets.eq(i).siblings().fadeOut(1200);
+	 		pics_targets.eq(i).delay(1200).fadeIn(1200);
+
+	 		//图片描述的淡入淡出
+	 		desc_targets.eq(i).siblings().fadeOut(1200);
+	 		desc_targets.eq(i).delay(1200).fadeIn(1200);
+
+        	}, delay);
+			},
+		function(){
+			_timeout = clearTimeout(_timeout);
+		}
+	);
+}
+
+//图片自动滑动的函数
+function autoSlide(tabs,pics_targets,desc_targets,delay,on_class){
+	 delay = delay || 4000;
+	 on_class = on_class || 'on';
+	 var num = pics_targets.length;
+	 function slide(){
+	 	var i = tabs.index(tabs.parent().find('.'+on_class+''));
+	 	return window.setInterval(function(){
+	 		if(i==num){
+	 			i = 0;
+	 		}
+	 		tabs.not($(tabs.get(i)).addClass(on_class)).removeClass(on_class);
+	 		//图片的淡入淡出
+	 		pics_targets.eq(i).siblings().fadeOut(1200);
+	 		pics_targets.eq(i).delay(1200).fadeIn(1200);
+
+	 		//图片描述的淡入淡出
+	 		desc_targets.eq(i).siblings().fadeOut(1200);
+	 		desc_targets.eq(i).delay(1200).fadeIn(1200);
+
+	 		i++;
+	 	},delay);
+	 };
+
+	 var auto = slide();
+
+	 tabs.hover(function(){
+	 	auto = clearInterval(auto);
+	 },function(){
+	 	auto = slide();
+	 });
+}	
