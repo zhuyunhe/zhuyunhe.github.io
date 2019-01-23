@@ -2,7 +2,9 @@
   "name": "zhuyunhe.github.io",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://www.weather.com.cn/",
   "dependencies": {
+    "antd": "^3.12.4",
     "autoprefixer": "7.1.6",
     "babel-core": "6.26.0",
     "babel-eslint": "7.2.3",
@@ -35,6 +37,8 @@
     "react": "^16.4.1",
     "react-dev-utils": "^5.0.1",
     "react-dom": "^16.4.1",
+    "react-redux": "^6.0.0",
+    "redux": "^4.0.1",
     "resolve": "1.6.0",
     "style-loader": "0.19.0",
     "sw-precache-webpack-plugin": "0.11.4",
@@ -86,10 +90,23 @@
   "babel": {
     "presets": [
       "react-app"
+    ],
+    "plugins": [
+      [
+        "import",
+        {
+          "libraryName": "antd",
+          "libraryDirectory": "es",
+          "style": "css"
+        }
+      ]
     ]
   },
   "eslintConfig": {
     "extends": "react-app"
   },
-  "homepage": "/build"
+  "homepage": "/build",
+  "devDependencies": {
+    "babel-plugin-import": "^1.11.0"
+  }
 }
