@@ -1,40 +1,45 @@
 import React, { Component } from 'react';
 import './App.css';
-import {Button} from 'antd'  
-import CountDown from './components/CountDown'
-import Weather from './components/Weather'
-import FancyButton from './components/FancyButton'
+import MyHeader from './components/index/header'
+import LeftMenu from './components/index/menu'
+import MyContent from './components/index/content'
 
-const MyButton = React.forwardRef((props, ref) => (
-  <button ref={ref} className="MyButton">
-    {props.children}
-  </button>
-));
+import { Layout } from 'antd';
 
+const { Footer, Sider, Content} = Layout;
 // 通过ref可以直接操作<button>元素:
-const ref = React.createRef();
-class Welcome extends React.Component{
+class Index extends React.Component{
+  constructor(){
+    super()
+    this.ref = React.createRef()
+  }
   render(){
-    const ref = React.createRef()
-    return  <header className="App-header">
-              <Button type="primary">primary</Button>
-              <h1 className="App-title">Welcome to My Home</h1>
-              <CountDown startCount={20}>
-              {
-                ( count ) => <div>{count > 0 ? count : '新年快乐~'}</div>
-              }
-              </CountDown>
-              <Weather></Weather>
-              <MyButton ref={ref}>Click me!</MyButton>
-              <FancyButton>click me!</FancyButton>
-            </header>
+    return(
+      <div className="page-wrapper">
+        <Layout>
+          <MyHeader></MyHeader>
+          <Layout style={{margin:'10px 0 0', padding:'0 10px'}}>
+            <Sider width={200} theme='light'>
+              <LeftMenu></LeftMenu>
+            </Sider>
+            <Content>
+              <MyContent></MyContent>
+            </Content>
+          </Layout>
+          <Footer></Footer>
+        </Layout>
+      </div>
+    )
+  }
+  componentDidMount(){
+    
   }
 }
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <Welcome></Welcome>
+        <Index></Index>
       </div>
     );
   }
