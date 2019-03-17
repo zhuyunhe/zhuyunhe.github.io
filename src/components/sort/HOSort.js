@@ -37,14 +37,19 @@ export default (WrappedComponent) => {
             x: 400
           },
           {
-            value: 8,
-            _value: 8,
+            value: 0,
+            _value: 0,
             x: 500
+          },
+          {
+            value: 6,
+            _value: 6,
+            x: 600
           },
           {
             value: 7,
             _value: 7,
-            x: 600
+            x: 700
           }
         ],
         begin: false
@@ -52,6 +57,7 @@ export default (WrappedComponent) => {
       this.elmentArr = []
 
       this.beginSort = this.beginSort.bind(this)
+      this.replay = this.replay.bind(this)
 
       this.passEle = this.passEle.bind(this)
 
@@ -65,7 +71,6 @@ export default (WrappedComponent) => {
     }
     //排序动画
     animate({ x1, x2, i, j }) {
-
       let p1 = anime({
         targets: this.elmentArr[i],
         easing: 'linear',
@@ -107,6 +112,11 @@ export default (WrappedComponent) => {
       })
       this.sort()
     }
+    replay(){
+      this.setState({
+        begin: false
+      })
+    }
     sort(){
       console.log('sss')
     }
@@ -122,16 +132,19 @@ export default (WrappedComponent) => {
         <div>
           <Wrapper>
             <div>
-              <Button onClick={this.beginSort} bgColor={begin ? '#bfbfbf' : '#52c41a'}>
+              <BeginButton onClick={this.beginSort} bgColor={begin ? '#bfbfbf' : '#52c41a'}>
                 开始
-              </Button>
+              </BeginButton>
+              <FinishButton onClick={this.replay} bgColor={begin ? '#52c41a' : '#bfbfbf'}>
+                重置
+              </FinishButton>
             </div>
             <div className="sort-con">
               {this.state.arr.map(item => {
                 return <SortEle key={item.value} x={item.x} value={item.value} passEle={this.passEle}></SortEle>
               })}
             </div>
-            <WrappedComponent arr={this.state.arr} animate={this.animate} updateElementArr={this.updateElementArr} setSort={this.setSort}/>
+            <WrappedComponent arr={this.state.arr} animate={this.animate} updateElementArr={this.updateElementArr} setSort={this.setSort} replay={this.replay}/>
           </Wrapper>
         </div>
       )
@@ -157,11 +170,21 @@ const Wrapper = styled.section`
   }
 `;
 
-const Button = styled.button`
+const BeginButton = styled.button`
   color: #fff;
   background-color: ${props => props.bgColor} ;
   font-size: 1em;
   padding: 10px 16px;
   border-radius: 3px;
   margin-bottom: 30px;
+`
+
+const FinishButton = styled.button`
+  color: #fff;
+  background-color: ${props => props.bgColor} ;
+  font-size: 1em;
+  padding: 10px 16px;
+  border-radius: 3px;
+  margin-bottom: 30px;
+  margin-left: 10px;
 `
