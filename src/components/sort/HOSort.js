@@ -11,42 +11,50 @@ export default (WrappedComponent) => {
       super()
       this.state = {
         arr: [
-          {
+          { 
+            index: 0,
             value: 5,
             _value: 5,
             x: 0
           },
           {
+            index: 1,
             value: 4,
             _value: 4,
             x: 100
           },
           {
+            index: 2,
             value: 3,
             _value: 3,
             x: 200
           },
           {
+            index: 3,
             value: 2,
             _value: 2,
             x: 300
           },
           {
+            index: 4,
             value: 1,
             _value: 1,
             x: 400
           },
           {
+            index: 5,
             value: 0,
             _value: 0,
             x: 500
           },
           {
+            index: 6,
             value: 6,
             _value: 6,
             x: 600
           },
           {
+            index: 7,
             value: 7,
             _value: 7,
             x: 700
@@ -65,12 +73,15 @@ export default (WrappedComponent) => {
 
       this.animate = this.animate.bind(this)
 
+      this.mergeSortAnimate = this.mergeSortAnimate.bind(this)
+
       this.updateElementArr = this.updateElementArr.bind(this)
 
 
     }
-    //排序动画
-    animate({ x1, x2, i, j }) {
+    //排序动画-交换位置
+    animate({ x1, x2, i, j, mergeSort=false }) {
+      
       let p1 = anime({
         targets: this.elmentArr[i],
         easing: 'linear',
@@ -92,6 +103,30 @@ export default (WrappedComponent) => {
         duration: 4000
       }).finished
       return Promise.all([p1, p2])
+    }
+
+    async mergeSortAnimate(arr){
+      let promiseArr = arr.map((item, index) => () => {
+        return anime({
+          targets: this.elmentArr[item.index],
+          easing: 'linear',
+          keyframes: [
+            { translateY: -20, left: item.x + 'px', backgroundColor: '#061178' },
+            { translateY: 0, backgroundColor: '#2f54eb' }
+          ],
+          duration: 4000
+        }).finished()
+      })
+
+      await promiseArr.reduce((prev, next) => {
+        
+        return prev.then(()=> {
+          console.log('resolve')  
+          return next()
+        })
+      },Promise.resolve())
+     
+      // return Promise.all(promiseArr)
     }
 
     updateElementArr(i,j){
@@ -118,7 +153,7 @@ export default (WrappedComponent) => {
       })
     }
     sort(){
-      console.log('sss')
+      
     }
     setSort(sort){
       this.sort = sort
@@ -144,7 +179,7 @@ export default (WrappedComponent) => {
                 return <SortEle key={item.value} x={item.x} value={item.value} passEle={this.passEle}></SortEle>
               })}
             </div>
-            <WrappedComponent arr={this.state.arr} animate={this.animate} updateElementArr={this.updateElementArr} setSort={this.setSort} replay={this.replay}/>
+            <WrappedComponent arr={this.state.arr} animate={this.animate} mergeSortAnimate={this.mergeSortAnimate} updateElementArr={this.updateElementArr} setSort={this.setSort} replay={this.replay}/>
           </Wrapper>
         </div>
       )

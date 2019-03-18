@@ -1,8 +1,22 @@
 import React, { Component } from 'react';
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Link
+} from 'react-router-dom';
+
 import './App.css';
 import MyHeader from './components/index/header'
 import LeftMenu from './components/index/menu'
 import MyContent from './components/index/content'
+
+
+import Sort from './components/sort/index'
+import QuickSort from './components/sort/quickSort/QuickSort'
+import BubbleSort from './components/sort/bubbleSort/BubbleSort'
+import InsertSort from './components/sort/insertSort/InsertSort'
+
 
 import { Layout } from 'antd';
 
@@ -23,7 +37,9 @@ class Index extends React.Component{
               <LeftMenu></LeftMenu>
             </Sider>
             <Content>
-              <MyContent></MyContent>
+              <MyContent>
+                
+              </MyContent>
             </Content>
           </Layout>
           <Footer></Footer>
@@ -38,9 +54,9 @@ class Index extends React.Component{
 class App extends Component {
   render() {
     return (
-      <div className="App">
+      <Router className="App">
         <Index></Index>
-      </div>
+      </Router>
     );
   }
 }

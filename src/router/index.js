@@ -1,7 +1,8 @@
 import React from 'react'
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import Home from '../App'
+import Sort from '../components/sort'
 import QuickSort from '../components/sort/quickSort/QuickSort'
 import BubbleSort from '../components/sort/bubbleSort/BubbleSort'
 import InsertSort from '../components/sort/insertSort/InsertSort'
@@ -10,14 +11,8 @@ import NotFound from '../page/NotFound'
 
 const Routes = () => (
   <Router>
-    <Switch>
       <Route exact path="/" component={Home} ></Route>
-      <Route exact path="/quicksort" component={QuickSort} ></Route>
-      <Route exact path="/bubblesort" component={BubbleSort} ></Route>
-      <Route exact path="/insertsort" component={InsertSort} ></Route>
-      <Route exact path="/about" component={About}></Route>
-      <Route exact component={NotFound} />
-    </Switch>
+      {/* <Route exact path="/sort" component={Sort} ></Route>       */}
   </Router>
 )
 

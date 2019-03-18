@@ -41,7 +41,6 @@ class QuickSort extends React.Component{
   }
   
   componentDidMount(){
-    // this.props.setSort()
     this.props.setSort(this.quickSort.bind(this))
   }
 
