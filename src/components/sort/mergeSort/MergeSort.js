@@ -69,15 +69,18 @@ function mergeArray(arr, first, mid, last, temp){
 
   async mergeArray(arr, first, mid, last, temp){
     let base = first, i=first, j=mid+1, count=0;
+
+    //如果待排序的部分本来就是有序的，则不需要进行动画
+    let changeFlag = false
     // debugger
     while(i<=mid && j<=last){
-      temp[count++] = arr[i]._value < arr[j]._value ? arr[i++] : arr[j++]
-      /* if (arr[i]._value < arr[j]._value ){
+      // temp[count++] = arr[i]._value < arr[j]._value ? arr[i++] : arr[j++]
+      if (arr[i]._value < arr[j]._value ){
         temp[count++] = arr[i++] 
-
       }else{
+        changeFlag = true
         temp[count++] = arr[j++] 
-      } */
+      }
     }
 
     while(i<=mid){
@@ -93,7 +96,9 @@ function mergeArray(arr, first, mid, last, temp){
       arr[first++] = item
     })
 
-    await this.props.mergeSortAnimate(temp)
+    if (changeFlag){
+      await this.props.mergeSortAnimate(temp)
+    }
 
   }
 

@@ -28,6 +28,10 @@ class LeftMune extends Component{
                 {
                   name: 'insertsort',
                   link: '/sort/insertsort'                  
+                },
+                {
+                  name: 'selectsort',
+                  link: '/sort/selectsort'
                 }
               ]
             },

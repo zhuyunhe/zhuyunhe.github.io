@@ -8,6 +8,7 @@ import QuickSort from '../sort/quickSort/QuickSort'
 import BubbleSort from '../sort/bubbleSort/BubbleSort'
 import InsertSort from '../sort/insertSort/InsertSort'
 import MergeSort from '../sort/mergeSort/MergeSort'
+import SelectSort from '../sort/selectSort/SelectSort'
 class MyContent extends Component{
   constructor(){
     super()
@@ -23,6 +24,7 @@ class MyContent extends Component{
           <Route exact path="/sort/bubblesort" component={BubbleSort} ></Route>
           <Route exact path="/sort/insertsort" component={InsertSort} ></Route>
           <Route exact path="/sort/mergesort" component={MergeSort} ></Route>
+          <Route exact path="/sort/selectsort" component={SelectSort} ></Route>
         </Switch>
       </Content>
     )

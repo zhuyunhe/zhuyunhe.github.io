@@ -60,11 +60,13 @@ export default (WrappedComponent) => {
             x: 700
           }
         ],
-        begin: false
+        begin: false,
+        finished: false
       }
       this.elmentArr = []
 
       this.beginSort = this.beginSort.bind(this)
+      this.finish = this.finish.bind(this)
       this.replay = this.replay.bind(this)
 
       this.passEle = this.passEle.bind(this)
@@ -90,7 +92,7 @@ export default (WrappedComponent) => {
           { left: x2 + 'px', backgroundColor: '#030852' },
           { translateY: 0, backgroundColor: '#2f54eb' }
         ],
-        duration: 4000
+        duration: 2000
       }).finished
       let p2 = anime({
         targets: this.elmentArr[j],
@@ -100,28 +102,40 @@ export default (WrappedComponent) => {
           { left: x1 + 'px', backgroundColor: '#030852' },
           { translateY: 0, backgroundColor: '#2f54eb' }
         ],
-        duration: 4000
+        duration: 2000
       }).finished
       return Promise.all([p1, p2])
     }
 
     async mergeSortAnimate(arr){
-      let promiseArr = arr.map((item, index) => () => {
+      console.log(arr);
+      
+      let promiseArr = arr.map((item) => () => {
         return anime({
           targets: this.elmentArr[item.index],
           easing: 'linear',
           keyframes: [
-            { translateY: -20, left: item.x + 'px', backgroundColor: '#061178' },
+            { translateY: 40, left: item.x + 'px', backgroundColor: '#061178' }
+          ],
+          duration: 1000
+        }).finished
+      })
+      promiseArr = promiseArr.concat(arr.reverse().map((item) => () => {
+        return anime({
+          targets: this.elmentArr[item.index],
+          easing: 'linear',
+          keyframes: [
             { translateY: 0, backgroundColor: '#2f54eb' }
           ],
-          duration: 4000
-        }).finished()
-      })
+          duration: 500
+        }).finished
+      }))
 
       await promiseArr.reduce((prev, next) => {
         
         return prev.then(()=> {
-          console.log('resolve')  
+          console.log('resolve')
+            
           return next()
         })
       },Promise.resolve())
@@ -147,6 +161,13 @@ export default (WrappedComponent) => {
       })
       this.sort()
     }
+
+    finish(){
+      this.setState({
+        finished: true
+      })
+    }
+
     replay(){
       this.setState({
         begin: false
@@ -170,7 +191,7 @@ export default (WrappedComponent) => {
               <BeginButton onClick={this.beginSort} bgColor={begin ? '#bfbfbf' : '#52c41a'}>
                 开始
               </BeginButton>
-              <FinishButton onClick={this.replay} bgColor={begin ? '#52c41a' : '#bfbfbf'}>
+              <FinishButton onClick={this.replay} bgColor={finished ? '#bfbfbf' : '#52c41a'}>
                 重置
               </FinishButton>
             </div>
@@ -179,7 +200,13 @@ export default (WrappedComponent) => {
                 return <SortEle key={item.value} x={item.x} value={item.value} passEle={this.passEle}></SortEle>
               })}
             </div>
-            <WrappedComponent arr={this.state.arr} animate={this.animate} mergeSortAnimate={this.mergeSortAnimate} updateElementArr={this.updateElementArr} setSort={this.setSort} replay={this.replay}/>
+            <WrappedComponent arr={this.state.arr} 
+              animate={this.animate} 
+              mergeSortAnimate={this.mergeSortAnimate} 
+              updateElementArr={this.updateElementArr} 
+              setSort={this.setSort} 
+              replay={this.replay} 
+              finish={this.finish}/>
           </Wrapper>
         </div>
       )
