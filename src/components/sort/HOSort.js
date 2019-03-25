@@ -82,7 +82,7 @@ export default (WrappedComponent) => {
 
     }
     //排序动画-交换位置
-    animate({ x1, x2, i, j, mergeSort=false }) {
+    animate({ x1, x2, i, j }) {
       
       let p1 = anime({
         targets: this.elmentArr[i],
@@ -183,7 +183,7 @@ export default (WrappedComponent) => {
 
 
     render() {
-      let { begin } = this.state
+      let { begin, finished } = this.state
       return (
         <div>
           <Wrapper>
@@ -191,7 +191,7 @@ export default (WrappedComponent) => {
               <BeginButton onClick={this.beginSort} bgColor={begin ? '#bfbfbf' : '#52c41a'}>
                 开始
               </BeginButton>
-              <FinishButton onClick={this.replay} bgColor={finished ? '#bfbfbf' : '#52c41a'}>
+              <FinishButton onClick={this.replay} bgColor={finished ? '#52c41a' : '#bfbfbf'}>
                 重置
               </FinishButton>
             </div>
@@ -216,20 +216,7 @@ export default (WrappedComponent) => {
 } 
 
 const Wrapper = styled.section`
-  padding: 20px 30px;
-  .label{
-    font-size: 18px;
-    margin-bottom: 10px;
-  }
-  .sort-con{
-    position: relative;
-    height: 100px;
-  }
-  .code{
-    padding: 10px;
-    background-color: #595959;
-    color: #fff;
-  }
+  
 `;
 
 const BeginButton = styled.button`

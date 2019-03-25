@@ -9,8 +9,8 @@ class LeftMune extends Component{
   constructor(){
     super()
     this.state = {
-      menuData:[
-        {
+      menuData:{
+        'sort':{
           name: 'sort',
           children: [
             {
@@ -45,19 +45,24 @@ class LeftMune extends Component{
                 {
                   name: 'mergesort',
                   link: '/sort/mergesort'
+                },
+                {
+                  name: 'shellsort',
+                  link: '/sort/shellsort'
                 }
               ]
             }
           ]
         },
-        {
+        'tree': {
           name: 'tree',
           children: [
             {
               name: 'easy',
               children: [
                 {
-                  name: 'reverse'
+                  name: 'reverse',
+                  link: '/tree/revertTree'
                 }
               ]
             },
@@ -65,19 +70,26 @@ class LeftMune extends Component{
               name: 'mid',
               children: [
                 {
-                  name: 'find'
+                  name: 'find',
+                  link: '/tree/findTree'
                 }
               ]
             }
           ]
         }
-      ],
+    },
 
-      menuIndex: 0
+      menuIndex: 'sort'
     }
+    
+    this.handleChange = this.handleChange.bind(this)
   }
-  handleChange(){
-
+  handleChange(value){
+    if(value){
+      this.setState({
+        menuIndex: value
+      })
+    }
   }
   handleClick(){
 
@@ -88,13 +100,13 @@ class LeftMune extends Component{
     return(
       <div>
         <Nav>
-          <Select defaultValue="sort" style={{ width:'100%'}} onChange={this.handleChange}>
-            <Option value="sort">
-              <Link to="/sort">sort</Link>
-            </Option>
-            <Option value="tree">
-              <Link to="/tree"></Link>
-            </Option>
+          <Select defaultValue="sort" style={{ width: '100%' }} onChange={this.handleChange}>
+
+          {Object.keys(menuData).map(item=>{
+            return <Option value={item} key={item}>
+                    <Link to={'/'+item}>{item}</Link>
+                  </Option>
+          })}
           </Select>
           <Menu
             theme='light'

@@ -4,6 +4,11 @@ import HOSort from '../HOSort'
 class MergeSort extends React.Component{
   constructor(props){
     super(props)
+    this.explain = `
+    归并排序是一种建立在归并操作上的排序算法。该算法也是采用分治的思想。
+    基本思路就是将数组分为A，B两组，如果这两组里的数据都是有序的，那么就可以很方便的将这两组数据进行排序。
+    那如何让这两组内的数据都是有序的呢？那就是让A，B组各自再分成两组。依次类推，当分出来的小组只有一个数据时，
+    就可以认为这个小组组内已经达到了有序，然后再合并相邻的两个小组就可以了。这样通过先**递归**地分解数组，在**合并**有序数组，就完成了归并排序。`
     this.code = `
 function mergeSort(arr, first, last){
   if(first < last){
@@ -105,6 +110,10 @@ function mergeArray(arr, first, mid, last, temp){
   render(){
     return (
       <div>
+        <p className="label">概述：</p>
+        <div className="explain">
+          {this.explain}
+        </div>
         <p className="label">参考代码：</p>
         <div className="code">
           <pre>

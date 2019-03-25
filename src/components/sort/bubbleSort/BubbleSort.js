@@ -52,6 +52,13 @@ class BubbleSort extends React.Component{
 
     this.passEle = this.passEle.bind(this)
 
+    this.explain = `
+      冒泡排序相对好理解一些，它的原理是：  
+      (1. 比较相邻的前后两个数，如果前一个数大于后一个，那就将两个数交换位置。<br>
+      (2. 对数组的0~(N-1)位置上的数执行一次上述操作后，数组终最大的一个数就“冒泡”到了数组的第N-1位置上。
+      (3. N=N-1,如果N不为0，则重复上述1，2两步。
+    `
+
     this.code = `
       function bubbleSort(arr){\n
         for(var i=1; i<arr.length; i++){
@@ -158,6 +165,10 @@ class BubbleSort extends React.Component{
               })
             }
           </div>
+          <p className="label">概述：</p>
+          <div className="explain">
+            {this.explain}
+          </div>
           <p className="label">参考代码：</p>
           <div className="code">
             <pre>
@@ -173,7 +184,6 @@ class BubbleSort extends React.Component{
 export default BubbleSort
 
 const Wrapper = styled.section`
-  padding: 20px 30px;
   .label{
     font-size: 18px;
     margin-bottom: 10px;

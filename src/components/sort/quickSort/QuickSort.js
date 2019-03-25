@@ -4,6 +4,12 @@ import HOSort from '../HOSort'
 class QuickSort extends React.Component{
   constructor(props){
     super(props)
+    this.explain = `
+    快速排序采用分治的思想，时间复杂度为O(N*logN)。基本思路是:  
+    (1. 先从数列中取出一个数作为基准数。  
+    (2. 分区过程，将数列中比这个数大的数全放在它的右边，小于或等于它的数全部放到它的左边。  
+    (3. 再对左右区间重复前两步，直到最后每个区间只有一个数。
+    `
     this.code =
     `
     function quicksort(arr,left,right){
@@ -99,6 +105,10 @@ class QuickSort extends React.Component{
   render(){
     return (
         <div>
+          <p className="label">概述：</p>
+          <div className="explain">
+            {this.explain}
+          </div>
           <p className="label">参考代码：</p>
           <div className="code">
             <pre>
