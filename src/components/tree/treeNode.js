@@ -7,7 +7,9 @@ class TreeNode extends Component{
   }
   componentDidMount(){
     let { value } = this.props.node
-    this.props.passEle(this.ele, value)
+    if(this.props.passEle){
+      this.props.passEle(this.ele, value, this.props.left)
+    }
   }
   render(){
     const { value, left, right, root } = this.props.node
@@ -17,8 +19,8 @@ class TreeNode extends Component{
     return (
       <Node ref={el => this.ele = el} x={x} root={root} leftDash={leftDash} rightDash={rightDash}>
         {value}
-        {left ? (<TreeNode passEle={this.props.passEle} node={left} x={-40}></TreeNode>) : ''}
-        {right ? (<TreeNode passEle={this.props.passEle} node={right} x={40}></TreeNode>) : ''}
+        {left ? (<TreeNode passEle={this.props.passEle} node={left} x={-40} left={this.props.left}></TreeNode>) : ''}
+        {right ? (<TreeNode passEle={this.props.passEle} node={right} x={40} left={this.props.left}></TreeNode>) : ''}
       </Node>
     )
   }

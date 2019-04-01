@@ -63,6 +63,10 @@ class LeftMune extends Component{
                 {
                   name: 'reverse',
                   link: '/tree/revertTree'
+                },
+                {
+                  name: 'sameTree',
+                  link: '/tree/sameTree'
                 }
               ]
             },

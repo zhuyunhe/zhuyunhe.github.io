@@ -13,6 +13,7 @@ import ShellSort from '../sort/shellSort/ShellSort'
 
 import Tree from '../tree'
 import RevertTree from '../tree/RevertTree'
+import SameTree from '../tree/sameTree'
 class MyContent extends Component{
   constructor(){
     super()
@@ -34,6 +35,7 @@ class MyContent extends Component{
 
           <Route exact path="/tree" component={Tree}></Route>
           <Route exact path="/tree/revertTree" component={RevertTree} ></Route>
+          <Route exact path="/tree/sameTree" component={SameTree} ></Route>
         </Switch>
       </Content>
     )
