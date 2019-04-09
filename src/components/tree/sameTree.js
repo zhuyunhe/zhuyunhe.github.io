@@ -90,13 +90,16 @@ function compare(treeAlpha, treeBeta){
     if (!root) {
       return
     }
-    if (root.value === value) {
+    // console.log('el:'+el.innerText + ' ,value:'+value + ' ,root:'+ root.value);
+    if (!root.el && root.value === value) {
       root.el = el
+      return root
     }
-    this.findNode(root.left, el, value)
-    this.findNode(root.right, el, value)
-
-    return root
+    let result = this.findNode(root.left, el, value)
+    if (!result) {
+      result = this.findNode(root.right, el, value)
+    }
+    return result
   }
 
   begin(){

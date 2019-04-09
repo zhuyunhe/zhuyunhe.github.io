@@ -39,7 +39,7 @@ const Node = styled.div`
   border-radius: 15px;
   text-align: center;
   &::before{
-    display: ${props =>props.leftDash || props.rightDash ? 'block' : 'none'};
+    display: ${props =>props.leftDash ? 'block' : 'none'};
     content: '';
     position: absolute;
     left: 13px;
@@ -50,7 +50,7 @@ const Node = styled.div`
     z-index: -1;
   }
   &::after{
-    display: ${props => props.leftDash || props.rightDash ? 'block' : 'none'};
+    display: ${props => props.rightDash  ? 'block' : 'none'};
     content: '';
     position: absolute;
     top: 0;

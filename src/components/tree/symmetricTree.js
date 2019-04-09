@@ -42,13 +42,19 @@ class SymmetricTree extends Component {
             right: {
               value: 8
             }
-          },
-          right: {
-            value: 5
           }
         },
         right: {
-          value: 3
+          value: 2,
+          right: {
+            value: 4,
+            left: {
+              value: 8
+            },
+            right: {
+              value: 6
+            }
+          }
         }
       }
     }
@@ -77,25 +83,90 @@ let a =[]
 a.push(root)
 a.push(root)
 while(a.length>0){
-let b = a.pop()
-let c = a.pop()
-    if(!b && !c) continue
-if(!b || !c) return false
-if(b.val !== c.val) return false
-a.push(b.left)
-a.push(c.right)
-a.push(b.right)
-a.push(c.left)
+  let b = a.pop()
+  let c = a.pop()
+  if(!b && !c) continue
+  if(!b || !c) return false
+  if(b.val !== c.val) return false
+  a.push(b.left)
+  a.push(c.right)
+  a.push(b.right)
+  a.push(c.left)
 }
 return true
 }
     `
 
     this.begin = this.begin.bind(this)
+    this.passEle = this.passEle.bind(this)
   }
 
   begin(){
-
+    const { treeAlpha, treeBeta } = this.state
+    this.isSymmetric(treeAlpha)
+    this.isSymmetric(treeBeta)
+  }
+  passEle(el, value, left) {
+    if (left) {
+      let root = Object.assign({}, this.state.treeAlpha)
+      root = this.findNode(root, el, value)
+      this.setState({
+        treeAlpha: root
+      })
+    } else {
+      let root = Object.assign({}, this.state.treeBeta)
+      root = this.findNode(root, el, value)
+      this.setState({
+        treeBeta: root
+      })
+    }
+  }
+  findNode(root, el, value) {
+    if (!root) {
+      return
+    }
+    // console.log('el:'+el.innerText + ' ,value:'+value + ' ,root:'+ root.value);
+    if (!root.el && root.value === value) {
+      root.el = el
+      return root
+    }
+    let result = this.findNode(root.left, el, value)
+    if(!result){
+      result = this.findNode(root.right, el, value)
+    }
+    return result
+  }
+  isSymmetric(root) {
+    if (root) {
+      return this.isMirror(root.left, root.right)
+    } else {
+      return true
+    }
+  }
+  async isMirror(left, right) {
+    if (!left && !right) {
+      return true
+    } else if (left && right && left.value === right.value) {
+      await this.changeColor(left.el, right.el)
+      let result = await this.isMirror(left.left, right.right)
+      if(!result) return false
+      result = await this.isMirror(left.right, right.left)
+      return result
+    } else {
+      await this.changeColor(left.el, right.el, true)
+      return false
+    }
+  }
+  changeColor(a, b, flag) {
+    let color = '#52c41a'
+    flag && (color = '#ff7875')
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        a.style.color = color
+        b.style.color = color
+        resolve()
+      }, 1000);
+    })
   }
 
   render(){
@@ -108,11 +179,13 @@ return true
         <Contain>
           <FlexBox>
             <TreeWrap>
+              <p>不对称：</p>
               <TreeNode node={treeAlpha} passEle={this.passEle} left={true}></TreeNode>
             </TreeWrap>
           </FlexBox>
           <FlexBox>
             <TreeWrap>
+              <p>对称：</p>
               <TreeNode node={treeBeta} passEle={this.passEle} left={false}></TreeNode>
             </TreeWrap>
           </FlexBox>
@@ -121,12 +194,15 @@ return true
         <div className="explain">
           {this.explain}
         </div>
+        <p>递归</p>
         <div className="code">
-          <p>递归</p>
           <pre>
             {this.code_1}
           </pre>
-          <p>迭代</p>
+          
+        </div>
+        <p>迭代</p>
+        <div className="code">
           <pre>
             {this.code_2}
           </pre>
@@ -146,5 +222,5 @@ const FlexBox = styled.div`
 `
 const TreeWrap = styled.div`
   position: relative;
-  height: 120px;
+  height: 160px;
 `
