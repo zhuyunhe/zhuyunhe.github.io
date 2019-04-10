@@ -40,13 +40,12 @@ function invertTree(root){
   if(!root){
     return root;
   }
-  var temp = root.left;
-  root.left = root.right;
+
+  //递归翻转左右子树
+  var temp = invertTree(root.left);
+  root.left = invertTree(root.right);
   root.right = temp;
   
-  //递归翻转左右子树
-  invertTree(root.left);
-  invertTree(root.right);
   return root;
 }
     `

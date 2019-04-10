@@ -71,6 +71,10 @@ class LeftMune extends Component{
                 {
                   name: 'symmetricTree',
                   link: '/tree/symmetricTree'
+                },
+                {
+                  name: 'balancedTree',
+                  link: '/tree/balancedTree'
                 }
               ]
             },

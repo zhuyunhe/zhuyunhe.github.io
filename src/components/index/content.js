@@ -15,6 +15,7 @@ import Tree from '../tree'
 import RevertTree from '../tree/RevertTree'
 import SameTree from '../tree/sameTree'
 import SymmetricTree from '../tree/symmetricTree'
+import BalancedTree from '../tree/balancedTree'
 class MyContent extends Component{
   constructor(){
     super()
@@ -38,6 +39,7 @@ class MyContent extends Component{
           <Route exact path="/tree/revertTree" component={RevertTree} ></Route>
           <Route exact path="/tree/sameTree" component={SameTree} ></Route>
           <Route exact path="/tree/symmetricTree" component={SymmetricTree} ></Route>
+          <Route exact path="/tree/balancedTree" component={BalancedTree} ></Route>
 
         </Switch>
       </Content>

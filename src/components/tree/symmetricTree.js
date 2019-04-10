@@ -175,6 +175,7 @@ return true
     return(
       <div>
         <h2>判断二叉树是否对称</h2>
+        <p>如果一个树的左子树和右子树镜像对称，那么这个树是对称的。</p>
         <Button type="primary" onClick={this.begin}>开始</Button>
         <Contain>
           <FlexBox>
@@ -195,6 +196,7 @@ return true
           {this.explain}
         </div>
         <p>递归</p>
+        <p>时间复杂度：O(n)。因为我们遍历整个输入树一次，所以总的运行时间是O(n)，其中n是树中节点的个数。</p>
         <div className="code">
           <pre>
             {this.code_1}
@@ -202,6 +204,8 @@ return true
           
         </div>
         <p>迭代</p>
+        <p>除了递归的方法，我们也可以利用队列进行迭代，队列中每两个连续的节点应该是相等的，而且它们的子树互为镜像。最初，队列中包含的是root和root。</p>
+        <p>时间复杂度：O(n)。因为我们遍历整个输入树一次，所以总的运行时间是O(n)，其中n是树中节点的个数。</p>
         <div className="code">
           <pre>
             {this.code_2}
