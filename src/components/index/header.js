@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import { Avatar } from 'antd';
+import { Avatar, Menu, Icon } from 'antd';
 import styled from 'styled-components' 
 
 class MyHeader extends Component{
@@ -21,6 +21,7 @@ const Header = styled.header`
   text-align: left;
   padding: 10px 12px;
   background-color: #fff;
+  margin-bottom: 10px;
 `
 const Slogan = styled.span`
   margin-left: 10px;

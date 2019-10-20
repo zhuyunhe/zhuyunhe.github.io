@@ -88,6 +88,56 @@ class LeftMune extends Component{
               ]
             }
           ]
+        },
+        'svg': {
+          name: 'svg',
+          children: [
+            {
+              name: '基础图形',
+              children: [
+                {
+                  name: 'basic',
+                  link: '/svg/basic'
+                },
+                {
+                  name: 'path',
+                  link: '/svg/path'
+                },
+                {
+                  name: 'text',
+                  link: '/svg/text'
+                },
+                {
+                  name: 'bezier',
+                  link: '/svg/bezier'
+                },
+                {
+                  name: 'animation',
+                  link: '/svg/animation'
+                },
+                {
+                  name: 'DP',
+                  link: '/svg/dp'
+                },
+                {
+                  name: 'spinner',
+                  link: '/svg/spinner'
+                },
+                {
+                  name: 'mask',
+                  link: '/svg/mask'
+                },
+                {
+                  name: 'gasp',
+                  link: '/svg/gsap'
+                },
+                {
+                  name: 'coordinate',
+                  link: '/svg/coordinate'
+                }
+              ]
+            }
+          ]
         }
     },
 
@@ -97,14 +147,15 @@ class LeftMune extends Component{
     this.handleChange = this.handleChange.bind(this)
   }
   handleChange(value){
+    console.log(value)
     if(value){
       this.setState({
         menuIndex: value
       })
     }
   }
-  handleClick(){
-
+  handleClick(item){
+    console.log(item)
   }
   render(){
     const { menuData, menuIndex} = this.state
@@ -112,11 +163,11 @@ class LeftMune extends Component{
     return(
       <div>
         <Nav>
-          <Select defaultValue="sort" style={{ width: '100%' }} onChange={this.handleChange}>
+          <Select defaultValue="sort" style={{ width: '100%' }} onChange={this.handleChange} >
 
           {Object.keys(menuData).map(item=>{
             return <Option value={item} key={item}>
-                    <Link to={'/'+item}>{item}</Link>
+              <Link style={{ color: 'rgba(0,0,0,.65)', display: 'inline-block', width: '100%' }} to={'/animation/'+item}>{item}</Link>
                   </Option>
           })}
           </Select>
@@ -133,7 +184,7 @@ class LeftMune extends Component{
                     {menu.children.map(item=>{
                       return (
                         <Menu.Item key={item.name}>
-                          <Link to={item.link}>{item.name}</Link>
+                          <Link to={'/animation' + item.link}>{item.name}</Link>
                         </Menu.Item>
                       )
                     })}

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+
 import {
   BrowserRouter as Router,
   Route,
@@ -8,17 +9,10 @@ import {
 
 import './App.css';
 import MyHeader from './components/index/header'
-import LeftMenu from './components/index/menu'
-import MyContent from './components/index/content'
+import AnimationContent from './components/index/content'
+import CssContent from './components/css/index'
 
-
-import Sort from './components/sort/index'
-import QuickSort from './components/sort/quickSort/QuickSort'
-import BubbleSort from './components/sort/bubbleSort/BubbleSort'
-import InsertSort from './components/sort/insertSort/InsertSort'
-
-
-import { Layout } from 'antd';
+import { Layout, Menu, Icon } from 'antd';
 
 const { Footer, Sider, Content} = Layout;
 // 通过ref可以直接操作<button>元素:
@@ -32,17 +26,22 @@ class Index extends React.Component{
       <div className="page-wrapper">
         <Layout>
           <MyHeader></MyHeader>
-          <Layout style={{margin:'10px 0 0', padding:'0 10px'}}>
-            <Sider width={200} theme='light'>
-              <LeftMenu></LeftMenu>
-            </Sider>
-            <Content>
-              <MyContent>
-                
-              </MyContent>
-            </Content>
+          <Menu mode="horizontal">
+            <Menu.Item key="mail">
+              <Link to={'/css'}><Icon type="mail" />CSS trick</Link>
+            </Menu.Item>
+            <Menu.Item key="maixl">
+              <Link to={'/animation'}><Icon type="mail" />Animation</Link>
+            </Menu.Item>
+          </Menu>
+          <Layout>
+            <Switch>
+              <Route path="/css" component={CssContent}></Route>
+              <Route path="/animation" component={AnimationContent} ></Route>
+            </Switch>
           </Layout>
-          <Footer></Footer>
+          <Footer>
+          </Footer>
         </Layout>
       </div>
     )
