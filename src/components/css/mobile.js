@@ -42,6 +42,35 @@ class Mobile extends Component {
             `
           }
         </Code>
+        <Title>
+          一像素下边框
+        </Title>
+        <OnePxTop>
+          顶部边框一像素
+        </OnePxTop>
+        <OnePxBottom>
+          底部边框一像素
+        </OnePxBottom>
+        <Code>
+          {
+          `
+  /*  底部边框一像素 */
+  p{
+    position: relative;
+  }
+  p::after{
+    position: absolute;
+    bottom:0;
+    left:0;
+    content: '';
+    width:100%;
+    height:1px;
+    border-top:1px solid black;
+    transform: scaleY(0.5);//注意兼容性
+  }
+          `
+          }
+        </Code>
       </div>
     )
   }
@@ -71,3 +100,32 @@ const SignBtn = styled.p`
     border-radius: 30px;
   }
 `
+
+const OnePxBottom = styled.p`
+  position: relative;
+  &::after{
+    position: absolute;
+    bottom:0;
+    left:0;
+    content: '';
+    width:100%;
+    height:1px;
+    border-top:1px solid black;
+    transform: scaleY(0.5);//注意兼容性
+  }
+`
+
+const OnePxTop = styled.p`
+  position: relative;
+  &::after{
+    position: absolute;
+    top:0;
+    left:0;
+    content: '';
+    width:100%;
+    height:1px;
+    border-top:1px solid black;
+    transform: scaleY(0.5);//注意兼容性
+  }
+`
+
