@@ -1,9 +1,10 @@
 {
-  "main.css": "static/css/main.5ab22a17.css",
-  "main.css.map": "static/css/main.5ab22a17.css.map",
-  "main.js": "static/js/main.e7472d43.js",
-  "main.js.map": "static/js/main.e7472d43.js.map",
+  "main.css": "static/css/main.e0d4e44a.css",
+  "main.css.map": "static/css/main.e0d4e44a.css.map",
+  "main.js": "static/js/main.2f30a0b6.js",
+  "main.js.map": "static/js/main.2f30a0b6.js.map",
   "static/media/mask.less": "static/media/mask.b54159c9.less",
+  "static/media/reset.less": "static/media/reset.6a480b89.less",
   "static/media/spinner.less": "static/media/spinner.0b022285.less",
   "static/media/text.less": "static/media/text.f10d63f0.less"
 }
