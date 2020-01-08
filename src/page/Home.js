@@ -232,7 +232,7 @@ const KeyBoard = styled.div`
 const KeyRow = styled.div`
   display: flex;
   justify-content: space-between;
-  width: 80%;
+  width: 420px;
   margin: 4px auto;
   
   >p,>div{
