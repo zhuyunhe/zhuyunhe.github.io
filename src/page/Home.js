@@ -228,11 +228,12 @@ const Card = styled.a`
 const KeyBoard = styled.div`
   display: flex;
   flex-wrap: wrap;
+  margin-top: 10px;
 `
 const KeyRow = styled.div`
   display: flex;
   justify-content: space-between;
-  width: 420px;
+  width: 560px;
   margin: 4px auto;
   
   >p,>div{
